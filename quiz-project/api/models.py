@@ -10,4 +10,4 @@ class Question(models.Model):
     correct_option = models.CharField(max_length=100)
 
     def __str__(self) -> str:
-        return self.pk
+        return str(self.pk) + ". " + self.content
