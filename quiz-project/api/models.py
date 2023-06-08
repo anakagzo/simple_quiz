@@ -11,3 +11,17 @@ class Question(models.Model):
 
     def __str__(self) -> str:
         return str(self.pk) + ". " + self.content
+
+
+class Quiz(models.Model):
+    username = models.CharField(max_length=100,unique=True)
+    email = models.EmailField(unique=True)
+    first_ans = models.CharField(max_length=100,null=True)
+    second_ans = models.CharField(max_length=100,null=True)
+    third_ans = models.CharField(max_length=100,null=True)
+    fourth_ans = models.CharField(max_length=100,null=True)
+    fifth_ans = models.CharField(max_length=100,null=True)
+    sixth_ans = models.CharField(max_length=100,null=True)
+
+    def __str__(self) -> str:
+        return str(self.username)
