@@ -47,7 +47,7 @@ class QuestionDetail(views.APIView):
 
 class Quiz(views.APIView):
     def get(self, request, format=None):
-        # creates a quiz using the questions
+        # creates a quiz using the questions stored in the database
 
         question_list = []
         questions = Question.objects.all()

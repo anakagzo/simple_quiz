@@ -1,5 +1,5 @@
-from django.urls import path, include
-from .views import QuestionList,QuestionDetail,Quiz
+from django.urls import path
+from .views import QuestionList, QuestionDetail, Quiz
 
 urlpatterns = [
     path('question', QuestionList.as_view()),
