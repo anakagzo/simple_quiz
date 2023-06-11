@@ -23,7 +23,7 @@ class TestQuestionModel:
         question_factory(content="what?")
         with pytest.raises(IntegrityError):
             question_factory(content="what?")
-    
+           
     def test_username_max_length(self, question_factory):
 
         # confirms that an error is raised
@@ -53,7 +53,6 @@ class TestQuizModel:
         username = "A" * 200
         obj = quiz_factory(username=username)
         with pytest.raises(ValidationError):
-            obj = quiz_factory(username=username)
             obj.full_clean()
 
     def test_username_unique_field(self, quiz_factory):

@@ -3,7 +3,7 @@ from .models import Question
 from rest_framework import views, status
 from rest_framework.response import Response
 from .serializers import QuestionSerializer, QuizSerializer
-from random import choice, randint, shuffle
+from random import randint
 
 
 class QuestionList(views.APIView):
@@ -48,20 +48,20 @@ class QuestionDetail(views.APIView):
 class Quiz(views.APIView):
     def get(self, request, format=None):
         # creates a quiz using the questions stored in the database
-
+        # The quiz contains 8 different questions
         question_list = []
         questions = Question.objects.all()
 
         count = len(questions)
         num = randint(0, count)
-        for int in range(num, num + 6):
+        for int in range(num, num + 8):
             if int < count:
                 question_list.append(questions[int])
             else:
                 int = int % count
                 question_list.append(questions[int])
 
-        serializer = QuestionSerializer(question_list, many=True )
+        serializer = QuestionSerializer(question_list, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):

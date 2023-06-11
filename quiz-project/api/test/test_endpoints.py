@@ -85,11 +85,11 @@ class TestQuizEndpoints:
     endpoint = '/api/quiz'
 
     def test_get_method(self, question_factory, api_client):
-        # confirms that the endpoint creates a quiz with six questions 
+        # confirms that the endpoint creates a quiz with eight questions 
         question_factory.create_batch(15)
         response = api_client().get(self.endpoint)
         assert response.status_code == 200
-        assert len(json.loads(response.content)) == 6
+        assert len(json.loads(response.content)) == 8
 
     def test_post_method(self, quiz_factory, api_client):
         # confirms that the endpoint accepts a post request,
